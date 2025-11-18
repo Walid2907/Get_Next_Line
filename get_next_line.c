@@ -6,11 +6,15 @@
 /*   By: wkerdad <wkerdad@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 19:04:49 by wkerdad           #+#    #+#             */
-/*   Updated: 2025/11/16 21:07:46 by wkerdad          ###   ########.fr       */
+/*   Updated: 2025/11/18 18:38:11 by wkerdad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include"get_next_line.h"
+
 char *get_next_line(int fd)
 {
+    char    *buff;
     
+    buff = malloc()
 }
