@@ -6,7 +6,7 @@
 /*   By: wkerdad <wkerdad@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 19:04:53 by wkerdad           #+#    #+#             */
-/*   Updated: 2025/11/21 21:57:23 by wkerdad          ###   ########.fr       */
+/*   Updated: 2025/11/21 22:02:41 by wkerdad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char *get_next_line(int fd);
 char	*ft_strchr(const char *str, int c);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif

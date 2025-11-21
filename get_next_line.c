@@ -6,7 +6,7 @@
 /*   By: wkerdad <wkerdad@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 19:04:49 by wkerdad           #+#    #+#             */
-/*   Updated: 2025/11/21 21:45:32 by wkerdad          ###   ########.fr       */
+/*   Updated: 2025/11/21 22:24:21 by wkerdad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,11 @@ int main ()
 {
     int fd;
     fd = open("example.txt", O_RDONLY);
-    char *line = get_next_line(fd);
-    printf("%s\n");
+    char *line;
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        printf("%s \n",line);
+        free(line);
+    }
+    close(fd);
 }
