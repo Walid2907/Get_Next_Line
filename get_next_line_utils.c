@@ -6,17 +6,17 @@
 /*   By: wkerdad <wkerdad@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 19:04:45 by wkerdad           #+#    #+#             */
-/*   Updated: 2025/11/21 22:47:04 by wkerdad          ###   ########.fr       */
+/*   Updated: 2025/11/23 23:06:01 by wkerdad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
-	char *sub_str;
-	size_t i;
-	size_t new_len;
+	char	*sub_str;
+	size_t	i;
+	size_t	new_len;
 
 	if (s == NULL)
 		return (NULL);
@@ -38,12 +38,13 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	sub_str[i] = '\0';
 	return (sub_str);
 }
-char *ft_strjoin(char *s1, char const *s2)
+
+char	*ft_strjoin(char *s1, char const *s2)
 {
-	int join_len;
-	int i;
-	char *str;
-	int a;
+	int		join_len;
+	int		i;
+	char	*str;
+	int		a;
 
 	i = 0;
 	a = 0;
@@ -53,24 +54,22 @@ char *ft_strjoin(char *s1, char const *s2)
 	str = malloc(join_len + 1);
 	if (!str)
 	{
-		if (s1)
-			free(s1);
-		return NULL;
+		free(s1);
+		return (NULL);
 	}
-	while (a < ft_strlen(s1))
+	while (a < (int)ft_strlen(s1))
 		str[i++] = s1[a++];
 	a = 0;
-	while (a < ft_strlen(s2))
+	while (a < (int)ft_strlen(s2))
 		str[i++] = s2[a++];
 	str[i] = '\0';
-	if (s1)
-		free(s1);
-	return str;
+	free(s1);
+	return (str);
 }
 
-char *ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	unsigned char *s;
+	unsigned char	*s;
 
 	if (str == NULL)
 		return (NULL);
@@ -85,25 +84,27 @@ char *ft_strchr(const char *str, int c)
 	}
 	return (NULL);
 }
-size_t ft_strlen(const char *str)
+
+size_t	ft_strlen(const char *str)
 {
-	size_t len;
+	size_t	len;
 
 	len = 0;
 	if (str == NULL)
-		return 0;
+		return (0);
 	while (str[len])
 	{
 		len++;
 	}
 	return (len);
 }
-char *ft_strdup(const char *s)
+
+char	*ft_strdup(const char *s)
 {
-	char *str;
-	char *new_str;
-	size_t i;
-	size_t len;
+	char	*str;
+	char	*new_str;
+	size_t	i;
+	size_t	len;
 
 	if (s == NULL)
 		return (NULL);
