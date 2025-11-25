@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wkerdad <wkerdad@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 19:04:49 by wkerdad           #+#    #+#             */
-/*   Updated: 2025/11/25 17:14:12 by wkerdad          ###   ########.fr       */
+/*   Created: 2025/11/25 15:59:51 by wkerdad           #+#    #+#             */
+/*   Updated: 2025/11/25 17:14:44 by wkerdad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*helper(char *remainder, char *buffer, int fd)
 {
@@ -99,20 +99,20 @@ static char	*update_remainder_after_line(char *remainder)
 
 char	*get_next_line(int fd)
 {
-	static char	*remainder;
+	static char	*remainder[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= 1024)
 		return (NULL);
-	remainder = read_until_newline(fd, remainder);
-	if (remainder == NULL)
+	remainder[fd] = read_until_newline(fd, remainder[fd]);
+	if (remainder[fd] == NULL)
 		return (NULL);
-	line = extract_line(remainder);
-	remainder = update_remainder_after_line(remainder);
-	if (remainder == NULL || *remainder == '\0')
+	line = extract_line(remainder[fd]);
+	remainder[fd] = update_remainder_after_line(remainder[fd]);
+	if (remainder[fd] == NULL || *remainder[fd] == '\0')
 	{
-		free(remainder);
-		remainder = NULL;
+		free(remainder[fd]);
+		remainder[fd] = NULL;
 		return (line);
 	}
 	return (line);
